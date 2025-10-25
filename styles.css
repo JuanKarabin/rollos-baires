@@ -777,3 +777,25 @@ section {
 .product-table-body tr:nth-of-type(even) {
     background-color: rgba(167, 75, 136, 0.1); /* Tinte Magenta */
 }
+
+/* ==================================================
+       Personalizar Dropdown (Activo)
+================================================== */
+
+/* Esto cambia el fondo azul por defecto de Bootstrap
+  para los items activos o clickeados del dropdown.
+*/
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--color-primario);
+    color: #fff; /* Asegura que el texto sea blanco y legible */
+}
+
+/* Esto hace lo mismo pero para el menú oscuro
+  que usás en el index.html
+*/
+.dropdown-menu-dark .dropdown-item.active,
+.dropdown-menu-dark .dropdown-item:active {
+    background-color: var(--color-primario);
+    color: #fff;
+}
