@@ -195,7 +195,7 @@ section {
 .quienes-somos-section {
     background: linear-gradient(to bottom, 
         var(--color-beige) 0%, 
-        rgba(80, 161, 165, 0.25) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
+        rgba(80, 161, 165, 0.2) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
         var(--color-fondo) 100%
     );
     padding: 5rem 0 2rem 0;
@@ -312,7 +312,7 @@ section {
 .productos-section {
     background: linear-gradient(to bottom, 
         var(--color-fondo) 0%, 
-        rgba(167, 75, 136, 0.25) 50%, /* Tinte sutil del color SECUNDARIO (#A74B88) */
+        rgba(167, 75, 136, 0.2) 50%, /* Tinte sutil del color SECUNDARIO (#A74B88) */
         var(--color-beige) 100%
     );
     position: relative;
@@ -414,7 +414,7 @@ section {
 .contact-section {
     background: linear-gradient(to bottom, 
         var(--color-beige) 0%, 
-        rgba(80, 161, 165, 0.25) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
+        rgba(80, 161, 165, 0.2) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
         var(--color-beige) 100%
     );
     position: relative;
