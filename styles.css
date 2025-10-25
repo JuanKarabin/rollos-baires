@@ -8,7 +8,8 @@
     /* Colores principales del logo */
     --color-primario: #50A1A5;  /* Teal */
     --color-secundario: #A74B88; /* Magenta */
-
+    --color-primario-rgb: 80, 161, 165;
+    --color-secundario-rgb: 167, 75, 136;
     /* Colores neutros */
     --color-beige: #fdfbf5f8;  /* Un beige claro como pediste */
     --color-fondo: #FFFFFF;
@@ -62,7 +63,6 @@ section {
 .btn-contacto {
     background-color: var(--color-primario);
     border-color: var(--color-primario);
-    color: #fff !important; /* Importante para sobreescribir estilos de .nav-link */
     font-weight: 500;
     transition: background-color 0.3s, border-color 0.3s;
 }
@@ -731,4 +731,36 @@ section {
 .cta-box .lead {
     margin-bottom: 2rem;
     color: #555;
+}
+
+/* ==================================================
+       ESTILOS TABLA (CINTAS DE PAPEL) - CORREGIDO
+================================================== */
+.product-table-header {
+    background-color: var(--color-primario); /* Cabezal Teal */
+    color: #fff;
+    font-weight: 700;
+}
+
+.product-table th, 
+.product-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1rem;
+    border: none; /* Quitamos bordes internos */
+}
+
+.product-table-body td {
+    font-weight: 600; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Separador sutil */
+}
+
+/* Fila Impar: Tinte color primario (10% de opacidad) */
+.product-table-body tr:nth-of-type(odd) {
+    background-color: rgba(80, 161, 165, 0.1); /* Tinte Teal */
+}
+
+/* Fila Par: Tinte color secundario (10% de opacidad) */
+.product-table-body tr:nth-of-type(even) {
+    background-color: rgba(167, 75, 136, 0.1); /* Tinte Magenta */
 }
