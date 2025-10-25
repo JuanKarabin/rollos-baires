@@ -1,27 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // 1. Inicializar WOW.js
-    // Esto buscará todas las clases .wow y aplicará las animaciones
-    new WOW().init();
+    // 1. Animaciones de Scroll con IntersectionObserver (Tu código)
+    const animatedElements = document.querySelectorAll(".fade-slide-left, .fade-slide-right, .fade-slide-up");
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                // Desconectamos el observador para este elemento una vez animado
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 }); // Se activa al 10% de visibilidad
 
-    // 2. Efecto de Navbar al hacer Scroll
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    
+    // 2. Efecto de Navbar al hacer Scroll (Lo dejamos)
     const navbar = document.getElementById('navbarPrincipal');
     
-    // Función para cambiar la clase de la navbar
     function handleScroll() {
         if (window.scrollY > 50) {
-            // Si el scroll es mayor a 50px, añade la clase 'scrolled'
             navbar.classList.add('scrolled');
         } else {
-            // Si está arriba, la quita
             navbar.classList.remove('scrolled');
         }
     }
 
-    // Escucha el evento 'scroll' en la ventana
     window.addEventListener('scroll', handleScroll);
-    
     // Ejecuta la función una vez al cargar por si la página se carga a mitad
     handleScroll();
 

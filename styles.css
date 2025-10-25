@@ -75,19 +75,27 @@ section {
 /* ---- Efecto de Scroll en Navbar ---- */
 /* Esta clase se aplica con JavaScript */
 .navbar.scrolled {
-    background-color: var(--color-beige); /* Fondo beige al hacer scroll */
+    background-color: var(--color-fondo); /* Fondo beige al hacer scroll */
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar.scrolled .nav-link {
-    color: var(--color-texto) !important; /* Texto oscuro sobre fondo beige */
+/* Hacemos los links de texto oscuros cuando está "scrolled" */
+.navbar.scrolled .navbar-nav .nav-link {
+    color: var(--color-texto);
 }
 
-.navbar.scrolled .nav-link:hover,
-.navbar.scrolled .nav-link.active {
-    color: var(--color-primario) !important; /* Color primario al pasar el mouse */
+/* Esta es la regla CLAVE: 
+  Es más específica para ganarle a ".navbar-dark .navbar-nav .nav-link" 
+*/
+.navbar-dark.scrolled .navbar-nav .nav-link {
+    color: var(--color-texto);
+}
+
+.navbar.scrolled .navbar-nav .nav-link:hover,
+.navbar.scrolled .navbar-nav .nav-link.active {
+    color: var(--color-primario); /* Color primario al pasar el mouse o al estar activo */
 }
 
 /* ==================================================
@@ -441,7 +449,7 @@ section {
     height: calc(3.5rem + 2px); /* Altura estándar */
 }
 .form-floating > textarea.form-control {
-    height: 120px !important; /* Altura del textarea */
+    height: 200px !important; /* Altura del textarea */
 }
 .form-floating > label {
     color: #6c757d; /* Color del placeholder */
@@ -576,3 +584,151 @@ section {
     }
 }
 
+
+/* ==================================================
+             Animaciones de Scroll (Custom)
+================================================== */
+
+/* Estado inicial: invisible y desplazado */
+.fade-slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: transform, opacity;
+}
+
+.fade-slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: transform, opacity;
+}
+
+.fade-slide-up {
+    opacity: 0;
+    transform: translateY(30px); /* Se mueve de abajo hacia arriba */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: transform, opacity;
+}
+
+/* Estado visible: opaco y en posición original */
+.fade-slide-left.visible,
+.fade-slide-right.visible,
+.fade-slide-up.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* ==================================================
+       ESTILOS PÁGINA DETALLE DE PRODUCTO
+================================================== */
+
+/* Hero del Producto (Sección 1) */
+.product-detail-hero {
+    background: linear-gradient(to bottom, 
+        var(--color-fondo) 0%, 
+        rgba(80, 161, 165, 0.1) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
+        var(--color-beige) 100%
+    );
+    padding-top: 70px; /* 70px navbar */
+    padding-bottom: 4rem;
+}
+
+.rollos-img {
+    background-color: #A74B889C;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.btn-back i {
+    margin-right: 0.25rem;
+}
+
+.btn-back:hover {
+    color: var(--color-primario);
+}
+
+.product-detail-hero h1 {
+    color: var(--color-primario);
+    font-weight: 700;
+}
+
+/* Sección Especificaciones (Sección 2) */
+.specifications-section {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    background: linear-gradient(to bottom, 
+        var(--color-beige) 0%, 
+        rgba(167, 75, 136, 0.1) 50%, /* Tinte sutil del color SECUNDARIO (#A74B88) */
+        var(--color-fondo) 100%
+    );
+}
+
+.spec-subtitle {
+    color: var(--color-primario);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-primario-claro);
+    padding-bottom: 0.5rem;
+}
+
+.spec-item {
+    background-color: #f8f9fa; /* Gris muy claro */
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid #eee;
+}
+
+.spec-item i {
+    color: var(--color-primario);
+    margin-right: 0.75rem;
+}
+
+.spec-callout {
+    background-color: white;
+    border-left: 5px solid var(--color-primario);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* Sección CTA Final (Sección 3) */
+.final-cta-section {
+    background: linear-gradient(to bottom, 
+        var(--color-fondo) 0%, 
+        rgba(80, 161, 165, 0.1) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
+        var(--color-fondo) 100%
+    );
+    padding-top: 0rem;
+    padding-bottom: 5rem;
+}
+
+.cta-box {
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cta-box h2 {
+    color: var(--color-secundario); /* Color magenta */
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-box .lead {
+    margin-bottom: 2rem;
+    color: #555;
+}
