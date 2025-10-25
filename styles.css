@@ -10,7 +10,7 @@
     --color-secundario: #A74B88; /* Magenta */
 
     /* Colores neutros */
-    --color-beige: #FDFBF5;  /* Un beige claro como pediste */
+    --color-beige: #fdfbf5f8;  /* Un beige claro como pediste */
     --color-fondo: #FFFFFF;
     --color-texto: #333;
 }
@@ -26,7 +26,7 @@ body {
 /* Ajuste para que el scroll (spy) de Bootstrap funcione correctamente con la navbar fija */
 section {
     position: relative;
-    padding-top: 70px; /* Debe coincidir con el padding-top del body */
+    padding-top: 90px; /* Debe coincidir con el padding-top del body */
    
 }
 
@@ -193,8 +193,12 @@ section {
 ================================================== */
 
 .quienes-somos-section {
-    background-color: var(--color-beige); /* Fondo beige claro */
-    padding: 5rem 0 10rem 0;
+    background: linear-gradient(to bottom, 
+        var(--color-beige) 0%, 
+        rgba(80, 161, 165, 0.25) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
+        var(--color-fondo) 100%
+    );
+    padding: 5rem 0 2rem 0;
     position: relative;
 }
 
@@ -306,16 +310,12 @@ section {
                      SECCIÓN PRODUCTOS
 ================================================== */
 .productos-section {
-    /* Fondo blanco, como en tu imagen */
-    background-color: var(--color-fondo); 
-    padding-bottom: 6rem;
+    background: linear-gradient(to bottom, 
+        var(--color-fondo) 0%, 
+        rgba(167, 75, 136, 0.25) 50%, /* Tinte sutil del color SECUNDARIO (#A74B88) */
+        var(--color-beige) 100%
+    );
     position: relative;
-    
-    /* El padding-top es solo para la navbar,
-       el espacio de las olas ya está en el wave-band-divider */
-    padding-top: 70px;
-    margin-top: -70px; /* Para el scroll-spy */
-    padding-bottom: 10rem;
 }
 
 .product-card {
@@ -334,7 +334,7 @@ section {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 
     .product-card-img {
-        background-color: var(--color-secundario);
+        background-color: var(--color-primario);
     }
 }
 
@@ -369,7 +369,7 @@ section {
     color: var(--color-primario);
     font-weight: 700;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.8rem;
     transition: color 0.3s;
 }
 
@@ -412,11 +412,13 @@ section {
                      SECCIÓN CONTACTO
 ================================================== */
 .contact-section {
-    background-color: var(--color-beige); /* Fondo beige, alternando con productos */
-    padding-bottom: 6rem;
+    background: linear-gradient(to bottom, 
+        var(--color-beige) 0%, 
+        rgba(80, 161, 165, 0.25) 50%, /* Tinte sutil del color PRIMARIO (#50A1A5) */
+        var(--color-beige) 100%
+    );
     position: relative;
-    padding-top: 70px;
-    margin-top: -70px; /* Para el scroll-spy */
+    padding-bottom: 5rem;
 }
 
 /* Contenedor del formulario */
@@ -573,3 +575,4 @@ section {
         margin-bottom: 0.5rem;
     }
 }
+
