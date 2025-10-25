@@ -42,7 +42,7 @@ section {
 }
 
 .navbar .logo {
-    max-height: 45px; /* Ajusta el tamaño de tu logo */
+    max-height: 50px; /* Ajusta el tamaño de tu logo */
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -274,6 +274,7 @@ section {
     color: var(--color-secundario); /* Color Magenta #A74B88 */
     font-weight: 700;
     margin-bottom: 1rem;
+    margin-top: 4rem;
 }
 
 /* ---- 4 Info Cards ---- */
@@ -370,5 +371,273 @@ section {
 
     .section-title {
         font-size: 1.75rem;
+    }
+}
+
+
+
+
+/* ==================================================
+                     SECCIÓN PRODUCTOS
+================================================== */
+.productos-section {
+    /* Fondo blanco, como en tu imagen */
+    background-color: var(--color-fondo); 
+    padding-bottom: 6rem;
+    position: relative;
+    
+    /* El padding-top es solo para la navbar,
+       el espacio de las olas ya está en el wave-band-divider */
+    padding-top: 70px;
+    margin-top: -70px; /* Para el scroll-spy */
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    border: 1px solid #eee;
+    overflow: hidden; /* Para que la imagen respete el borde redondeado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Asegura la estructura vertical */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-img {
+    width: 100%;
+    height: 250px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio */
+}
+
+.product-card-body {
+    padding: 1.5rem;
+    flex-grow: 1; /* Hace que el body crezca para llenar el espacio */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-texto);
+    margin-bottom: 0.75rem;
+}
+
+.product-card-body p {
+    flex-grow: 1; /* Empuja el botón "Ver más" hacia abajo */
+    margin-bottom: 1.5rem;
+}
+
+.btn-ver-mas {
+    color: var(--color-primario);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.btn-ver-mas i {
+    transition: transform 0.3s ease-in-out;
+    display: inline-block; /* Necesario para la transición */
+}
+
+.btn-ver-mas:hover {
+    color: #3f8084; /* Primario más oscuro */
+}
+
+.btn-ver-mas:hover i {
+    transform: translateX(5px); /* Mueve la flecha */
+}
+
+/* CTA Final (Consultanos) */
+.products-cta p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-texto);
+}
+
+.btn-secondary {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    color: #fff;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #8a3c6f; /* Secundario más oscuro */
+    border-color: #8a3c6f;
+    color: #fff;
+}
+
+/* ==================================================
+                     SECCIÓN CONTACTO
+================================================== */
+.contact-section {
+    background-color: var(--color-beige); /* Fondo beige, alternando con productos */
+    padding-bottom: 6rem;
+    position: relative;
+    padding-top: 70px;
+    margin-top: -70px; /* Para el scroll-spy */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    height: 100%;
+}
+
+.form-title {
+    font-weight: 700;
+    color: var(--color-texto);
+    margin-bottom: 1.5rem;
+}
+
+/* Ajustes a los campos flotantes de Bootstrap */
+.form-floating > .form-control {
+    height: calc(3.5rem + 2px); /* Altura estándar */
+}
+.form-floating > textarea.form-control {
+    height: 120px !important; /* Altura del textarea */
+}
+.form-floating > label {
+    color: #6c757d; /* Color del placeholder */
+}
+
+/* Cards de Info de Contacto */
+.contact-info-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    text-align: center;
+    height: 100%;
+}
+
+.icon-box-contact {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem auto;
+    border-radius: 50%;
+    background-color: var(--color-primario);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.contact-info-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.contact-info-card p {
+    margin-bottom: 0;
+    color: #6c757d;
+}
+
+/* Contenedor del Mapa */
+.map-container {
+    border-radius: 10px;
+    overflow: hidden; /* Para que el iframe respete el borde */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    line-height: 0; /* Arregla espacios extra del iframe */
+}
+
+.map-container iframe {
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+/* ==================================================
+                         FOOTER
+================================================== */
+.footer-section {
+    background-color: #212f32; /* Un color oscuro, casi negro-azulado */
+    color: #adb5bd; /* Un gris claro para el texto */
+    font-size: 0.9rem;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.logo-footer {
+    max-height: 70px; /* Ajusta el tamaño del logo en el footer */
+}
+
+.footer-section .footer-info p {
+    margin-top: 1rem;
+    max-width: 350px; /* Evita que el texto se estire demasiado */
+}
+
+.footer-section h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff; /* Títulos en blanco */
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul a {
+    color: #adb5bd;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.footer-links ul a:hover {
+    color: #fff; /* Resalta el link al pasar el mouse */
+}
+
+.footer-links ul i {
+    margin-right: 8px;
+    font-size: 1rem;
+    color: var(--color-primario); /* Iconos en color primario */
+}
+
+/* Línea divisoria */
+.footer-divider {
+    border-color: #3a4a4d; /* Un gris un poco más claro que el fondo */
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Sección Copyright */
+.footer-bottom {
+    font-size: 0.85rem;
+    color: #889a9e; /* Un gris más sutil */
+}
+
+.footer-bottom .credits {
+    font-weight: 700;
+    color: #adb5bd;
+}
+
+/* Responsive para el footer bottom */
+@media (max-width: 767.98px) {
+    .footer-bottom .col-md-4 {
+        margin-bottom: 0.5rem;
     }
 }
