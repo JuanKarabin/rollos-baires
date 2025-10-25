@@ -27,7 +27,7 @@ body {
 section {
     position: relative;
     padding-top: 70px; /* Debe coincidir con el padding-top del body */
-    margin-top: -70px; /* Debe ser el negativo del padding-top */
+   
 }
 
 
@@ -194,79 +194,8 @@ section {
 
 .quienes-somos-section {
     background-color: var(--color-beige); /* Fondo beige claro */
-    padding-bottom: 6rem; /* Espacio al final de la sección */
+    padding: 5rem 0 10rem 0;
     position: relative;
-    
-    /* Ajuste de padding:
-       70px para el offset de la navbar fija
-       10vh para el espacio que ocuparán las olas 
-    */
-    padding-top: calc(10vh + 70px); 
-    
-    /* Restauramos el margin-top negativo. 
-       Esto es crucial para que los links del menú (scroll-spy) 
-       apunten al lugar correcto.
-    */
-    margin-top: -70px;
-}
-
-/* ---- Divisor de Olas Animado (SVG) (CORREGIDO) ---- */
-.wave-divider-svg {
-    position: absolute;
-    /* top: 70px; -> Se ubica justo debajo del padding-top de la navbar.
-       Aquí es donde empieza el área de 10vh que le dimos.
-    */
-    top: 70px;
-    left: 0;
-    width: 100%;
-    height: 10vh; /* La altura que reservamos en el padding-top */
-    min-height: 100px;
-    max-height: 150px;
-    z-index: 1; /* Por encima de la sección, debajo de la navbar */
-
-    /* ¡LA MAGIA ESTÁ AQUÍ!
-      Esto invierte el SVG verticalmente. 
-      Las "colinas" ahora son "valles".
-    */
-    transform: scaleY(-1);
-}
-
-.waves {
-    position: relative;
-    width: 100%;
-    height: 100%; /* Ocupa todo el alto del .wave-divider-svg */
-}
-
-/* El contenido debe estar sobre las olas */
-.content-above-waves {
-    position: relative;
-    z-index: 2;
-}
-
-.parallax > use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
-}
-.parallax > use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 7s;
-}
-.parallax > use:nth-child(2) {
-    animation-delay: -3s;
-    animation-duration: 10s;
-}
-.parallax > use:nth-child(3) {
-    animation-delay: -4s;
-    animation-duration: 13s;
-}
-
-/* Animación del SVG */
-@keyframes move-forever {
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
 }
 
 /* ---- Títulos de Sección ---- */
@@ -274,7 +203,6 @@ section {
     color: var(--color-secundario); /* Color Magenta #A74B88 */
     font-weight: 700;
     margin-bottom: 1rem;
-    margin-top: 4rem;
 }
 
 /* ---- 4 Info Cards ---- */
@@ -361,10 +289,7 @@ section {
 }
 
 @media (max-width: 768px) {
-    .wave-divider-svg {
-        height: 70px;
-        min-height: 70px;
-    }
+    
     .quienes-somos-section {
         padding-top: 70px;
     }
@@ -390,6 +315,7 @@ section {
        el espacio de las olas ya está en el wave-band-divider */
     padding-top: 70px;
     margin-top: -70px; /* Para el scroll-spy */
+    padding-bottom: 10rem;
 }
 
 .product-card {
@@ -406,6 +332,10 @@ section {
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+    .product-card-img {
+        background-color: var(--color-secundario);
+    }
 }
 
 .product-card-img {
@@ -413,6 +343,8 @@ section {
     height: 250px; /* Altura fija para la imagen */
     object-fit: cover; /* Asegura que la imagen cubra el espacio */
 }
+
+
 
 .product-card-body {
     padding: 1.5rem;
