@@ -46,6 +46,23 @@ section {
     max-height: 50px; /* Ajusta el tamaño de tu logo */
 }
 
+/* ---- Lógica del Logo Swap ---- */
+/* 1. Ocultar el logo de color por defecto (el blanco es visible) */
+.navbar .logo-color {
+    display: none;
+}
+.navbar .logo-white {
+    display: inline-block;
+}
+
+/* 2. Cuando se scrollea, invertir la visibilidad */
+.navbar.scrolled .logo-color {
+    display: inline-block; /* Mostrar logo de color */
+}
+.navbar.scrolled .logo-white {
+    display: none; /* Ocultar logo blanco */
+}
+
 /* 1. Estilos GENERALES para TODOS los links de la navbar */
 .navbar .navbar-nav .nav-link {
     font-weight: 500;      /* <-- La negrita para TODOS */
@@ -86,30 +103,42 @@ section {
 }
 
 /* ---- Efecto de Scroll en Navbar ---- */
-/* Esta clase se aplica con JavaScript */
 .navbar.scrolled {
-    background-color: var(--color-fondo); /* Fondo beige al hacer scroll */
+    background-color: var(--color-fondo); /* Fondo beige/blanco al hacer scroll */
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Hacemos los links de texto oscuros cuando está "scrolled" */
-.navbar.scrolled .navbar-nav .nav-link {
-    color: var(--color-texto);
+/* 1. Links de texto (NO el botón) cuando está scrolled */
+/* Usamos :not() para excluir el botón de esta regla */
+.navbar.scrolled .navbar-nav .nav-link:not(.btn-contacto) {
+    color: var(--color-texto); /* Color oscuro (negro) */
 }
 
-/* Esta es la regla CLAVE: 
-  Es más específica para ganarle a ".navbar-dark .navbar-nav .nav-link" 
-*/
-.navbar-dark.scrolled .navbar-nav .nav-link {
-    color: var(--color-texto);
+/* 2. Links de texto (NO el botón) en estado active/hover */
+.navbar.scrolled .navbar-nav .nav-link:not(.btn-contacto):hover,
+.navbar.scrolled .navbar-nav .nav-link:not(.btn-contacto).active {
+    color: var(--color-primario); /* Color primario (teal) */
 }
 
-.navbar.scrolled .navbar-nav .nav-link:hover,
-.navbar.scrolled .navbar-nav .nav-link.active {
-    color: var(--color-primario); /* Color primario al pasar el mouse o al estar activo */
+/* 3. Botón "Contacto" (SOLO texto) cuando está scrolled */
+/* Esta regla soluciona tu 2do pedido (páginas de producto) */
+.navbar.scrolled .navbar-nav .nav-link.btn-contacto {
+    color: #ffffff; /* Texto siempre blanco */
 }
+.navbar.scrolled .navbar-nav .nav-link.btn-contacto:hover {
+    color: #ffffff; /* Mantener blanco en hover */
+}
+
+/* 4. Botón "Contacto" (INVERTIDO) cuando está scrolled Y ACTIVO */
+/* Esta regla soluciona tu 1er pedido (en la sección Contacto del index) */
+.navbar.scrolled .navbar-nav .nav-link.btn-contacto.active {
+    color: var(--color-primario); /* Texto primario (teal) */
+    background-color: #fff; /* Fondo blanco */
+    border-color: var(--color-primario); /* Borde teal */
+}
+
 
 /* ==================================================
                      Estilos del Hero (Banner)
@@ -798,4 +827,46 @@ section {
 .dropdown-menu-dark .dropdown-item:active {
     background-color: var(--color-primario);
     color: #fff;
+}
+
+
+
+/*btn wsp*/
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #A74B889C;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 999;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  background-color: var(--color-secundario);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 70px;
+    height: 70px;
+  }
+  .whatsapp-float img {
+    width: 40px;
+    height: 40px;
+  }
 }
