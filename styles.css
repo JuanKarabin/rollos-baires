@@ -22,6 +22,8 @@ body {
     color: var(--color-texto);
     /* El padding-top es para que el contenido de las secciones no quede oculto bajo la navbar fija */
     padding-top: 70px; /* Ajusta esto a la altura de tu navbar */
+    overflow-x: hidden;
+
 }
 
 /* Ajuste para que el scroll (spy) de Bootstrap funcione correctamente con la navbar fija */
@@ -29,6 +31,10 @@ section {
     position: relative;
     padding-top: 90px; /* Debe coincidir con el padding-top del body */
    
+}
+
+html {
+  overflow: auto;
 }
 
 
@@ -199,37 +205,59 @@ section {
     color: var(--color-texto); /* Texto oscuro al pasar el mouse */
 }
 
-
 /* ==================================================
-                         Responsive (Móvil)
+             Responsive (Móvil) - CORREGIDO
 ================================================== */
 @media (max-width: 991.98px) {
-    /* En móvil, la navbar es siempre sólida para mejor legibilidad del menú desplegable */
+    /* 1. Fondo beige (Esto ya lo tenías) */
     .navbar {
-        background-color: var(--color-beige);
-    }
-    
-    .navbar-dark .navbar-nav .nav-link {
-        color: var(--color-texto); /* Texto oscuro en el menú móvil */
-    }
-    
-    .navbar-dark .navbar-toggler {
-        border-color: rgba(0,0,0,0.1);
+        background-color: var(--color-beige) !important; /* !important para ganar al 'transparent' */
     }
 
+    /* 2. FORZAR el logo de color (Arregla el logo blanco) */
+    .navbar .logo-color {
+        display: inline-block;
+    }
+    .navbar .logo-white {
+        display: none;
+    }
+
+    /* 3. FORZAR el ícono de hamburguesa oscuro (Arregla el ícono blanco/cortado) */
     .navbar-dark .navbar-toggler-icon {
-        /* Bootstrap usa un SVG, lo forzamos a ser oscuro */
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(51, 51, 51, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
+    .navbar-dark .navbar-toggler {
+        border-color: rgba(0,0,0,0.1); /* Borde oscuro sutil */
+    }
 
+    /* 4. FORZAR los links de texto a ser oscuros */
+    .navbar-dark .navbar-nav .nav-link {
+        color: var(--color-texto);
+    }
+    
+    /* 5. FORZAR el link 'active' a ser de color primario (Arregla "Inicio" invisible) */
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: var(--color-primario);
+    }
+
+    /* 6. FORZAR el texto del botón 'Contacto' a ser siempre blanco */
+    /* (Se verá bien en el menú desplegable) */
+    .navbar-dark .navbar-nav .btn-contacto,
+    .navbar-dark .navbar-nav .btn-contacto:hover {
+        color: #ffffff; 
+    }
+    
+    /* 7. Estilos de botón móvil (Esto ya lo tenías) */
     .btn-contacto {
         width: 100%;
         margin-top: 0.5rem;
         margin-left: 0 !important;
     }
 
+    /* 8. Tamaños de Hero (Esto ya lo tenías) */
     .hero-section h1 {
-        font-size: 2.5rem; /* Texto más pequeño en móvil */
+        font-size: 2.5rem;
     }
 
     .hero-section p {
@@ -776,13 +804,31 @@ section {
 }
 
 /* ==================================================
+       Arreglo Botones CTA (Móvil)
+================================================== */
+
+/* Usamos el breakpoint 'md' (767.98px) o 'sm' (575.98px)
+   para aplicar esto a celulares */
+@media (max-width: 767.98px) {
+    
+    /* Opcional: Esto hace que ambos botones ocupen
+       el 100% del ancho, que se ve muy bien en móviles. */
+    .cta-box .btn {
+        width: 100%;
+        display: block;
+    }
+
+    /* Selecciona un botón que venga DESPUÉS de otro botón
+       (es decir, tu botón "Ver Otros Productos") */
+    .cta-box .btn + .btn {
+        margin-top: 0.75rem; /* <-- AGREGA EL ESPACIO VERTICAL */
+        margin-left: 0 !important;      /* <-- Anula el 'ms-2' horizontal */
+    }
+}
+
+/* ==================================================
        ESTILOS TABLA (CINTAS DE PAPEL) - CORREGIDO
 ================================================== */
-.product-table-header {
-    background-color: var(--color-primario); /* Cabezal Teal */
-    color: #fff;
-    font-weight: 700;
-}
 
 .product-table th, 
 .product-table td {
