@@ -661,6 +661,12 @@ html {
     .footer-bottom .col-md-4 {
         margin-bottom: 0.5rem;
     }
+
+    /* Arreglo para email largo en el footer móvil */
+    .footer-links ul a[href^="mailto:"] {
+        overflow-wrap: break-word; /* Permite que el navegador rompa la palabra */
+        word-break: break-all;     /* Fuerza el quiebre si es necesario */
+    }
 }
 
 
