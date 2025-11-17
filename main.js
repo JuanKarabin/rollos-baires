@@ -73,6 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert('Hubo un error de conexión. Por favor, revisá tu internet e intentá de nuevo.');
             });
         });
-    }
+    } 
 
 });
